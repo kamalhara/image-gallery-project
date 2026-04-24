@@ -95,7 +95,6 @@ export default function Gallery() {
 
   return (
     <div className="flex flex-col h-full space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
           Gallery
@@ -119,10 +118,9 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Grid */}
       <div
         ref={gridContainerRef}
-        className="w-full h-[75vh] border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden relative"
+        className="w-full h-[85vh] border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden relative"
       >
         {gridSize.width > 0 &&
           gridSize.height > 0 &&
