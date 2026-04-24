@@ -136,8 +136,7 @@ export default function Gallery() {
               <Grid
                 columnCount={currentColumnCount}
                 rowCount={currentRowCount}
-                height={height}
-                width={width}
+                style={{ width, height }}
                 columnWidth={currentColumnWidth}
                 rowHeight={260}
                 cellProps={{}}
@@ -174,6 +173,17 @@ export default function Gallery() {
                             className="w-5 h-5 cursor-pointer rounded border-gray-300 text-gray-900 focus:ring-gray-900 shadow-sm transition-opacity opacity-0 group-hover:opacity-100 checked:opacity-100"
                           />
                         </div>
+                        <div className="absolute bottom-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              downloadImage(image.download_url);
+                            }}
+                            className="bg-black/70 hover:bg-black text-white px-3 py-1.5 rounded-md text-xs font-medium backdrop-blur-sm transition-colors shadow-sm"
+                          >
+                            Download
+                          </button>
+                        </div>
                       </div>
                     </div>
                   );
@@ -209,8 +219,14 @@ export default function Gallery() {
 
       {/* Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-4xl w-full flex flex-col max-h-[90vh]">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          onClick={() => setSelectedImage("")}
+        >
+          <div 
+            className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-4xl w-full flex flex-col max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
               <h3 className="font-semibold text-gray-900">Image Preview</h3>
               <button
