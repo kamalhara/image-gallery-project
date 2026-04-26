@@ -105,7 +105,7 @@ export default function Gallery() {
             disabled={selectedIds.length === 0}
             className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Download Selected
+            Download Selected Images
           </button>
           <button
             onClick={handleSelectAllImages}
@@ -219,11 +219,11 @@ export default function Gallery() {
 
       {/* Modal */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
           onClick={() => setSelectedImage("")}
         >
-          <div 
+          <div
             className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-4xl w-full flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
